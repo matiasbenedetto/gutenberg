@@ -5,7 +5,7 @@
 ### Experimental
 
 -   Reinstated the ability to pass additional props to the `ToolsPanel` ([36428](https://github.com/WordPress/gutenberg/pull/36428)).
--   Divider: improve support for vertical orientation and RTL styles, use start/end logical props instead of top/bottom ([36579](https://github.com/WordPress/gutenberg/pull/36579)).
+-   Divider: improve support for vertical orientation and RTL styles, use start/end logical props instead of top/bottom, change border-color to `currentColor` ([36579](https://github.com/WordPress/gutenberg/pull/36579)).
 
 ### Bug Fix
 
