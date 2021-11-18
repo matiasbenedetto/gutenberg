@@ -35,13 +35,23 @@ function render_block_core_query_pagination_previous( $attributes, $content, $bl
 		add_filter( 'previous_posts_link_attributes', $filter_link_attributes );
 		$content = get_previous_posts_link( $label );
 		remove_filter( 'previous_posts_link_attributes', $filter_link_attributes );
-	} elseif ( 1 !== $page ) {
-		$content = sprintf(
-			'<a href="%1$s" %2$s>%3$s</a>',
-			esc_url( add_query_arg( $page_key, $page - 1 ) ),
-			$wrapper_attributes,
-			$label
-		);
+	} else {
+		$on_first_page = 1 === $page;
+		if ( $on_first_page ) {
+			$content = sprintf(
+				'<span %1$s>%2$s</span>',
+				$wrapper_attributes,
+				$label
+			);
+		} else {
+			$link    = esc_url( add_query_arg( $page_key, $page - 1 ) );
+			$content = sprintf(
+				'<a href="%1$s" %2$s>%3$s</a>',
+				$link,
+				$wrapper_attributes,
+				$label
+			);
+		}
 	}
 	return $content;
 }
