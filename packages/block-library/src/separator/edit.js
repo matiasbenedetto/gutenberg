@@ -19,10 +19,10 @@ import {
 import useDeprecatedOpacity from './use-deprecated-opacity';
 
 export default function SeparatorEdit( { attributes, setAttributes } ) {
-	const { backgroundColor, opacity, style } = attributes;
+	const { backgroundColor, opacity } = attributes;
 	const colorProps = useColorProps( attributes );
 	const currentColor = colorProps?.style?.backgroundColor;
-	const hasCustomColor = !! style?.color?.background;
+	const hasCustomColor = !! currentColor;
 
 	useDeprecatedOpacity( opacity, currentColor, setAttributes );
 
@@ -43,6 +43,7 @@ export default function SeparatorEdit( { attributes, setAttributes } ) {
 	const styles = {
 		color: currentColor,
 		backgroundColor: currentColor,
+		borderColor: currentColor,
 	};
 
 	return (
